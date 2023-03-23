@@ -1,9 +1,25 @@
-export default function Home() {
+import { useRouter } from "next/router";
+import { Fragment } from "react";
+
+import AuthForm from "@/components/AuthForm";
+
+export default function LoginPage() {
+  const router = useRouter();
+
+  function authenticate() {
+    router.push('/homePage');
+  }
+
   return (
-    <>
-    <h1 className="text-3xl underline">
-      Hello world!
-    </h1>
-    </>
+    <Fragment>
+      <div className="flex h-screen bg-neutral-900">
+        <div className="m-auto w-96">
+          <div className="mb-10">
+            <h1 className="text-center text-4xl text-neutral-50">LOGIN</h1>
+          </div>
+          <AuthForm onLogin={ authenticate }></AuthForm>
+        </div>
+      </div>
+    </Fragment>
   )
 }
