@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { DataSource, Repository } from 'typeorm';
+import { DataSource, EntityNotFoundError, Repository } from 'typeorm';
 
-import { CreateUserInput } from './dtos/create-user.input';
 import { UpdateUserInput } from './dtos/update-user.input';
 import { User } from './user.entity';
 
@@ -15,23 +14,18 @@ export class UserRepository extends Repository<User> {
     const query = this.createQueryBuilder().select();
 
     if (id) {
-      return await query.where({ id }).getMany();
+      const user = await query.where({ id }).getOne();
+      this.checkUser(user);
+
+      return user;
     }
 
     return await query.getMany();
   }
 
-  async createUser(createUserInput: CreateUserInput) {
-    const insert = await this.createQueryBuilder()
-      .insert()
-      .into(User)
-      .values(createUserInput)
-      .execute();
-
-    return this.findUser(insert.generatedMaps[0].id);
-  }
-
   async updateUser(id: string, updateUserInput: UpdateUserInput) {
+    this.checkUser(await this.findOne({ where: { id: id } }));
+
     await this.createQueryBuilder()
       .update(User)
       .set(updateUserInput)
@@ -42,6 +36,8 @@ export class UserRepository extends Repository<User> {
   }
 
   async deleteUser(id: string) {
+    this.checkUser(await this.findOne({ where: { id: id } }));
+
     return await this.createQueryBuilder()
       .delete()
       .from(User)
@@ -51,5 +47,11 @@ export class UserRepository extends Repository<User> {
 
   async findUser(id: string) {
     return await this.createQueryBuilder().select().where({ id }).getOne();
+  }
+
+  private checkUser(user: User) {
+    if (!user) {
+      throw new EntityNotFoundError(User.name, undefined);
+    }
   }
 }

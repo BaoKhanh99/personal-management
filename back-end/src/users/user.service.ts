@@ -8,7 +8,7 @@ import { UserRepository } from './user.repository';
 export class UserService {
   constructor(private readonly userRepository: UserRepository) {}
   async create(createUserInput: CreateUserInput) {
-    return await this.userRepository.createUser(createUserInput);
+    return await this.userRepository.save(createUserInput);
   }
 
   async getUsers(id: string) {
