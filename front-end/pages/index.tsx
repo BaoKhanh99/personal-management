@@ -1,13 +1,25 @@
 import { useRouter } from "next/router";
 import { Fragment } from "react";
+import Cookies from "js-cookie";
 
-import AuthForm from "@/components/AuthForm";
+import AuthForm from "@/components/auth/AuthForm";
+import axiosClient from "@/configs/axios.config";
 
 export default function LoginPage() {
   const router = useRouter();
 
-  function authenticate() {
-    router.push('/homePage');
+  if (Cookies.get('accessToken')) {
+    router.back();
+  }
+
+  async function authenticate(email?: string, password?: string): Promise<void> {
+
+    const { data } = await axiosClient.post('/auth/login',{email, password});
+
+    Cookies.set('accessToken', data.accessToken);
+    Cookies.set('refreshToken', data.refreshToken);
+
+    router.push(`/homePage`);
   }
 
   return (
