@@ -10,7 +10,7 @@ export class UserRepository extends Repository<User> {
     super(User, _dataSource.manager);
   }
 
-  async getUsers(id: string) {
+  async getUsers(id: string): Promise<User[] | User> {
     const query = this.createQueryBuilder().select();
 
     if (id) {
@@ -23,7 +23,10 @@ export class UserRepository extends Repository<User> {
     return await query.getMany();
   }
 
-  async updateUser(id: string, updateUserInput: UpdateUserInput) {
+  async updateUser(
+    id: string,
+    updateUserInput: UpdateUserInput,
+  ): Promise<User> {
     this.checkUser(await this.findOne({ where: { id: id } }));
 
     await this.createQueryBuilder()
@@ -32,7 +35,7 @@ export class UserRepository extends Repository<User> {
       .where('id= :id', { id })
       .execute();
 
-    return this.findUser(id);
+    return this.findOne({ id });
   }
 
   async deleteUser(id: string) {
@@ -45,8 +48,10 @@ export class UserRepository extends Repository<User> {
       .execute();
   }
 
-  async findUser(id: string) {
-    return await this.createQueryBuilder().select().where({ id }).getOne();
+  async findOne(condition: object): Promise<User> {
+    return await this._dataSource
+      .getRepository(User)
+      .findOne({ where: condition });
   }
 
   private checkUser(user: User) {
