@@ -7,5 +7,6 @@ export const loggerConstant = {
   queryParameterPrefix: ' -- PARAMETERS: ',
   typeOrmFirstQuery: 'FirstTypeOrmQuery',
   success: 'complete 200 OK',
+  unauthorized: 'complete 401 Unauthorized',
   entityNotFound: 'complete 404 Entity Not Found',
 };
