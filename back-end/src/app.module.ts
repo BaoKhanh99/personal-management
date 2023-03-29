@@ -1,5 +1,6 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule } from '@nestjs/config';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -8,12 +9,15 @@ import { UserModule } from './users/user.module';
 import { LoggerMiddleware } from './config/logger/logger.middleware';
 import { AsyncRequestContextModule } from './config/async-request-context/async-request-context.module';
 import { LoggerModule } from './config/logger/logger.module';
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
+    UserModule,
+    AuthModule,
+    ConfigModule,
     TypeOrmModule.forRootAsync(typeOrmAsyncConfig),
     AsyncRequestContextModule.forRoot({ isGlobal: true }),
     LoggerModule,
-    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
