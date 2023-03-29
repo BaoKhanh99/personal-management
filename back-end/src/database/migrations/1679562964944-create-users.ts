@@ -5,7 +5,7 @@ export class CreateUsers1679562523833 implements MigrationInterface {
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(
-      `CREATE TABLE "user" (
+      `CREATE TABLE "users" (
 				"id" uuid NOT NULL DEFAULT uuid_generate_v4(),
 				"updated_at" TIMESTAMP NOT NULL DEFAULT now(),
 				"created_at" TIMESTAMP NOT NULL DEFAULT now(),
@@ -17,11 +17,11 @@ export class CreateUsers1679562523833 implements MigrationInterface {
 				CONSTRAINT "PK_cace4a159ff9f2512dd42373760" PRIMARY KEY ("id")
 			)`,
     );
-    await queryRunner.query(`CREATE INDEX "users_email" ON "user" ("email") `);
+    await queryRunner.query(`CREATE INDEX "users_email" ON "users" ("email") `);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(`DROP INDEX "public"."users_email"`);
-    await queryRunner.query(`DROP TABLE "user"`);
+    await queryRunner.query(`DROP TABLE "users"`);
   }
 }
