@@ -4,7 +4,7 @@ import { CreateUserInput } from './dtos/create-user.input';
 import { UpdateUserInput } from './dtos/update-user.input';
 import { User } from './user.entity';
 import { UserRepository } from './user.repository';
-import { hash } from '../common/utils/bcrypt.util';
+import { hash } from '../../common/utils/bcrypt.util';
 
 @Injectable()
 export class UserService {

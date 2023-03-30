@@ -20,9 +20,9 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm": "typeorm-ts-node-commonjs",
     "m:c": "typeorm migration:create src/migrations/$name",
-    "m:g": "typeorm migration:generate -d ./dist/config/database/datasource.js ./src/migrations/$name",
-    "m:run": "typeorm migration:run -d ./dist/config/database/datasource.js",
-    "m:revert": "typeorm migration:revert -d ./dist/config/database/datasource.js"
+    "m:g": "typeorm migration:generate -d ./dist/database/datasource.js ./src/database/migrations/$name",
+    "m:run": "typeorm migration:run -d ./dist/database/datasource.js",
+    "m:revert": "typeorm migration:revert -d ./dist/database/datasource.js"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
@@ -36,6 +36,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "cli-color": "^2.0.3",
+    "joi": "^17.9.1",
     "nest-winston": "^1.9.1",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",

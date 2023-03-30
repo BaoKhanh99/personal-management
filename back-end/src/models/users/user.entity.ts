@@ -1,6 +1,6 @@
 import { Column, Entity, Index } from 'typeorm';
 
-import { Base } from '../common/entities/base.entity';
+import { Base } from '../../common/entities/base.entity';
 
 @Entity()
 export class User extends Base {

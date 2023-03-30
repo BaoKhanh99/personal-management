@@ -3,20 +3,22 @@ import { WINSTON_MODULE_NEST_PROVIDER, WinstonModule } from 'nest-winston';
 
 import { AppModule } from './app.module';
 import { EntityNotFoundFilter } from './common/filters/entity-not-found.filter';
-import { loggerOption } from './config/logger/logger.option';
-import { AsyncRequestContext } from './config/async-request-context/async-request-context.service';
-import { LoggerInterceptor } from './config/logger/logger.interceptor';
+import { AsyncRequestContext } from './common/async-request-context/async-request-context.service';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { UnauthorizedFilter } from './common/filters/unauthorized.filter';
+import { AppConfigService } from './config/app/config.service';
+import { loggerOption } from './common/logger/logger.option';
+import { LoggerInterceptor } from './common/logger/logger.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     logger: WinstonModule.createLogger(loggerOption),
   });
-  const reflector = app.get(Reflector);
 
+  const reflector = app.get(Reflector);
   const logger = app.get(WINSTON_MODULE_NEST_PROVIDER);
   const asyncRequestContext = app.get(AsyncRequestContext);
+  const appConfig: AppConfigService = app.get(AppConfigService);
 
   app.useGlobalFilters(
     new EntityNotFoundFilter(logger, asyncRequestContext),
@@ -29,6 +31,6 @@ async function bootstrap() {
 
   app.enableCors();
 
-  await app.listen(3000);
+  await app.listen(appConfig.getPort());
 }
 bootstrap();

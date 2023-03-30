@@ -1,7 +1,6 @@
-import { DataSourceOptions } from 'typeorm';
-import 'dotenv/config';
+import { DataSource } from 'typeorm';
 
-const databaseConfig: DataSourceOptions = {
+const appDataSource = new DataSource({
   type: 'postgres',
   host: process.env.DATABASE_HOST,
   port: +process.env.DATABASE_PORT,
@@ -9,9 +8,8 @@ const databaseConfig: DataSourceOptions = {
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
   entities: ['dist/**/*.entity.js'],
-  migrations: ['dist/migrations/*.js'],
+  migrations: ['dist/database/migrations/*.js'],
   synchronize: false,
-  logging: true,
-};
+});
 
-export default databaseConfig;
+export default appDataSource;

@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 
-import { authErrorsConstant } from '../../config/errors/constants/auth-error.constant';
+import { authErrorsConstant } from '../../common/errors/constants/auth-error.constant';
 
 @Injectable()
 export class LocalAuthGuard extends AuthGuard('local') {

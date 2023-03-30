@@ -14,7 +14,7 @@ import { UserDto } from './dtos/user.dto';
 import { UserService } from './user.service';
 import { CreateUserInput } from './dtos/create-user.input';
 import { UpdateUserInput } from './dtos/update-user.input';
-import { Serializer } from '../common/decorators/serializer.decorator';
+import { Serializer } from '../../common/decorators/serializer.decorator';
 
 @Controller('users')
 @Serializer(UserDto)

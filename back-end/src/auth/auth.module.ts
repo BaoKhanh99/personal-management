@@ -10,7 +10,7 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { LocalStrategy } from './strategies/local.strategy';
 import { JwtStrategy } from './strategies/jwt.strategy';
-import { UserModule } from '../users/user.module';
+import { UserModule } from '../models/users/user.module';
 
 @Module({
   imports: [
@@ -20,7 +20,7 @@ import { UserModule } from '../users/user.module';
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         privateKey: fs.readFileSync(
-          path.join(__dirname + process.env.PRIVATE_KEY),
+          path.join(__dirname + configService.get('PRIVATE_KEY')),
         ),
         publicKey: fs.readFileSync(
           path.join(__dirname + configService.get('PUBLIC_KEY')),
