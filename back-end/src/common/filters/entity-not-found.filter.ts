@@ -8,10 +8,10 @@ import {
 import { Response } from 'express';
 import { EntityNotFoundError } from 'typeorm';
 
-import { commonErrorsConstant } from '../../config/errors/constants/common-error.constant';
-import { formatException } from '../../config/errors/error.response';
-import { AsyncRequestContext } from '../../config/async-request-context/async-request-context.service';
-import { loggerConstant } from '../../config/logger/logger.constant';
+import { AsyncRequestContext } from '../async-request-context/async-request-context.service';
+import { commonErrorsConstant } from '../errors/constants/common-error.constant';
+import { loggerConstant } from '../logger/logger.constant';
+import { formatException } from '../errors/error.response';
 
 @Catch(EntityNotFoundError)
 export class EntityNotFoundFilter implements ExceptionFilter {

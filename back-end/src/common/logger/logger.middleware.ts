@@ -3,7 +3,7 @@ import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { Logger } from 'winston';
 import { v4 } from 'uuid';
 
-import { AsyncRequestContext } from '../async-request-context/async-request-context.service';
+import { AsyncRequestContext } from '../../common/async-request-context/async-request-context.service';
 
 @Injectable()
 export class LoggerMiddleware implements NestMiddleware {

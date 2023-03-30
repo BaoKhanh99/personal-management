@@ -10,7 +10,7 @@ import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { Observable, tap } from 'rxjs';
 
 import { loggerConstant } from './logger.constant';
-import { AsyncRequestContext } from '../async-request-context/async-request-context.service';
+import { AsyncRequestContext } from '../../common/async-request-context/async-request-context.service';
 
 @Injectable()
 export class LoggerInterceptor implements NestInterceptor {

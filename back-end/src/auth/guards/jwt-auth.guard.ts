@@ -7,7 +7,7 @@ import { Reflector } from '@nestjs/core';
 import { AuthGuard } from '@nestjs/passport';
 import { Observable } from 'rxjs';
 
-import { authErrorsConstant } from '../../config/errors/constants/auth-error.constant';
+import { authErrorsConstant } from '../../common/errors/constants/auth-error.constant';
 
 @Injectable()
 export class JwtAuthGuard extends AuthGuard('jwt') {

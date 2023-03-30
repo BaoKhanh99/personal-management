@@ -1,21 +1,21 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule } from '@nestjs/config';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { typeOrmAsyncConfig } from './config/database/typeorm.config';
-import { UserModule } from './users/user.module';
-import { LoggerMiddleware } from './config/logger/logger.middleware';
-import { AsyncRequestContextModule } from './config/async-request-context/async-request-context.module';
-import { LoggerModule } from './config/logger/logger.module';
+import { UserModule } from './models/users/user.module';
 import { AuthModule } from './auth/auth.module';
+import { AppConfigModule } from './config/app/config.module';
+import { LoggerModule } from './common/logger/logger.module';
+import { LoggerMiddleware } from './common/logger/logger.middleware';
+import { DatabaseProviderModule } from './providers/database/database-provider.module';
+import { AsyncRequestContextModule } from './common/async-request-context/async-request-context.module';
+
 @Module({
   imports: [
     UserModule,
     AuthModule,
-    ConfigModule,
-    TypeOrmModule.forRootAsync(typeOrmAsyncConfig),
+    AppConfigModule,
+    DatabaseProviderModule,
     AsyncRequestContextModule.forRoot({ isGlobal: true }),
     LoggerModule,
   ],

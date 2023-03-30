@@ -7,9 +7,9 @@ import {
 } from '@nestjs/common';
 import { Response } from 'express';
 
-import { AsyncRequestContext } from '../../config/async-request-context/async-request-context.service';
-import { formatException } from '../../config/errors/error.response';
-import { loggerConstant } from '../../config/logger/logger.constant';
+import { AsyncRequestContext } from '../async-request-context/async-request-context.service';
+import { loggerConstant } from '../logger/logger.constant';
+import { formatException } from '../errors/error.response';
 
 @Catch(UnauthorizedException)
 export class UnauthorizedFilter implements ExceptionFilter {
