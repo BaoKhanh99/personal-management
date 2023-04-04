@@ -16,4 +16,16 @@ export class AppConfigService {
   getPort(): number {
     return +this.configService.get<string>('app.port');
   }
+
+  getTz(): string {
+    return this.configService.get<string>('app.tz');
+  }
+
+  getPublicKey(): string {
+    return this.configService.get<string>('app.public_key');
+  }
+
+  getPrivateKey(): string {
+    return this.configService.get<string>('app.private_key');
+  }
 }

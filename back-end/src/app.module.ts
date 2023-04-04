@@ -1,7 +1,6 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { UserModule } from './models/users/user.module';
 import { AuthModule } from './auth/auth.module';
 import { AppConfigModule } from './config/app/config.module';
@@ -20,7 +19,6 @@ import { AsyncRequestContextModule } from './common/async-request-context/async-
     LoggerModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

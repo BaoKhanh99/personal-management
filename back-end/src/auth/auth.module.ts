@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 
@@ -11,19 +10,21 @@ import { AuthService } from './auth.service';
 import { LocalStrategy } from './strategies/local.strategy';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { UserModule } from '../models/users/user.module';
+import { AppConfigModule } from '../config/app/config.module';
+import { AppConfigService } from '../config/app/config.service';
 
 @Module({
   imports: [
     UserModule,
     JwtModule.registerAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
+      imports: [AppConfigModule],
+      inject: [AppConfigService],
+      useFactory: (appConfigService: AppConfigService) => ({
         privateKey: fs.readFileSync(
-          path.join(__dirname + configService.get('PRIVATE_KEY')),
+          path.join(__dirname + appConfigService.getPrivateKey()),
         ),
         publicKey: fs.readFileSync(
-          path.join(__dirname + configService.get('PUBLIC_KEY')),
+          path.join(__dirname + appConfigService.getPublicKey()),
         ),
         signOptions: {
           expiresIn: authConstant.accessTokenExpiresIn,
@@ -35,6 +36,7 @@ import { UserModule } from '../models/users/user.module';
       }),
     }),
     PassportModule,
+    AppConfigModule,
   ],
   controllers: [AuthController],
   providers: [AuthService, LocalStrategy, JwtStrategy],
