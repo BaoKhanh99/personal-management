@@ -9,6 +9,7 @@ import { UnauthorizedFilter } from './common/filters/unauthorized.filter';
 import { AppConfigService } from './config/app/config.service';
 import { loggerOption } from './common/logger/logger.option';
 import { LoggerInterceptor } from './common/logger/logger.interceptor';
+import { BadRequestException, ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -28,6 +29,14 @@ async function bootstrap() {
   app.useGlobalInterceptors(new LoggerInterceptor(logger, asyncRequestContext));
 
   app.useGlobalGuards(new JwtAuthGuard(reflector));
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      transform: true,
+      exceptionFactory: (error) => new BadRequestException(error),
+    }),
+  );
 
   app.enableCors();
 
