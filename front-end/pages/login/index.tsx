@@ -1,6 +1,6 @@
+import Cookies from 'js-cookie'
 import { useRouter } from 'next/router'
 import { Fragment } from 'react'
-import Cookies from 'js-cookie'
 
 import AuthForm from '@/components/auth/AuthForm'
 import axiosClient from '@/configs/axios.config'
@@ -14,7 +14,7 @@ export default function LoginPage() {
 
   async function authenticate(
     email?: string,
-    password?: string,
+    password?: string
   ): Promise<void> {
     const { data } = await axiosClient.post('/auth/login', { email, password })
 
