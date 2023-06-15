@@ -5,7 +5,7 @@ import { Base } from '../../common/entities/base.entity';
 
 @Entity('to_dos')
 export class ToDo extends Base {
-  @ManyToOne(() => User, (user) => user.ToDos)
+  @ManyToOne(() => User, (user) => user.toDos)
   @JoinColumn({ name: 'user_id' })
   user: User;
 
@@ -13,7 +13,7 @@ export class ToDo extends Base {
     name: 'name',
     nullable: false,
   })
-  name: string;
+  title: string;
 
   @Column('varchar', {
     name: 'description',
@@ -21,25 +21,21 @@ export class ToDo extends Base {
   })
   description: string;
 
-  @Column('boolean', {
-    name: 'is_done',
+  @Column('timestamp', {
     nullable: false,
-    default: false,
-  })
-  isDone: boolean;
-
-  @Column('date', {
     name: 'start_date',
-    nullable: false,
   })
   startDate: Date;
 
-  @Column('date', {
+  @Column('timestamp', {
+    nullable: true,
     name: 'end_date',
-    nullable: false,
   })
-  endDate: Date;
+  EndDate: Date;
 
-  @Column('uuid', { name: 'user_id', nullable: false })
+  @Column('string', {
+    nullable: false,
+    name: 'user_id',
+  })
   userId: string;
 }
