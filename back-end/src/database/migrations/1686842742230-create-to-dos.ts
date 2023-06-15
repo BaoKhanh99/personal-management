@@ -1,33 +1,33 @@
 import { MigrationInterface, QueryRunner } from 'typeorm';
 
-export class CreateToDos1680061002542 implements MigrationInterface {
-  name = 'createToDos1680061002542';
+export class createToDos1686842742230 implements MigrationInterface {
+  name = 'createToDos1686842742230';
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(
       `CREATE TABLE "to_dos" (
         "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
+        "title" character varying NOT NULL,
+        "description" character varying NOT NULL,
+        "start_date" TIMESTAMP NOT NULL,
+        "end_date" TIMESTAMP NULL,
+        "user_id" uuid NOT NULL,
         "updated_at" TIMESTAMP NOT NULL DEFAULT now(),
         "created_at" TIMESTAMP NOT NULL DEFAULT now(),
         "deleted_at" TIMESTAMP,
-        "name" character varying NOT NULL,
-        "description" character varying NOT NULL,
-        "is_done" boolean NOT NULL DEFAULT false,
-        "start_date" date NOT NULL,
-        "end_date" date NOT NULL,
-        "user_id" uuid NOT NULL, CONSTRAINT "PK_19d14b861427e18d619639c8f2b" PRIMARY KEY ("id")
+        CONSTRAINT "PK_0ba5e70efa865410598075a2fc4" PRIMARY KEY ("id")
       )`,
     );
     await queryRunner.query(
-      `ALTER TABLE "to_dos" ADD CONSTRAINT "FK_f95b58e1f020b1646b8a6725785"
-        FOREIGN KEY ("user_id") REFERENCES "users"("id")
+      `ALTER TABLE "to_dos" ADD CONSTRAINT
+        "FK_b8f631bad8b4234b66bde710158" FOREIGN KEY ("user_id") REFERENCES "users"("id")
         ON DELETE NO ACTION ON UPDATE NO ACTION`,
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(
-      `ALTER TABLE "to_dos" DROP CONSTRAINT "FK_f95b58e1f020b1646b8a6725785"`,
+      `ALTER TABLE "to_dos" DROP CONSTRAINT "FK_b8f631bad8b4234b66bde710158"`,
     );
     await queryRunner.query(`DROP TABLE "to_dos"`);
   }

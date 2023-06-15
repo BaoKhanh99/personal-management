@@ -21,8 +21,8 @@
     "typeorm": "typeorm-ts-node-commonjs",
     "m:c": "typeorm migration:create src/migrations/$name",
     "m:g": "typeorm migration:generate -d ./dist/database/datasource.js ./src/database/migrations/$name",
-    "m:run": "typeorm migration:run -d ./dist/database/datasource.js",
-    "m:revert": "typeorm migration:revert -d ./dist/database/datasource.js"
+    "m:r": "typeorm migration:run -d ./dist/database/datasource.js",
+    "m:re": "typeorm migration:revert -d ./dist/database/datasource.js"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
