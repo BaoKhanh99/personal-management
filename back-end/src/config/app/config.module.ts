@@ -1,9 +1,9 @@
-import * as Joi from 'joi';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import * as Joi from 'joi';
 
-import configuration from './configuration';
 import { AppConfigService } from './config.service';
+import configuration from './configuration';
 
 const configService = {
   provide: 'CONFIG_SERVICE',

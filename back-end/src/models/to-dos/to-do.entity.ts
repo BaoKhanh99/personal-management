@@ -1,7 +1,7 @@
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
-import { User } from '../users/user.entity';
 import { Base } from '../../common/entities/base.entity';
+import { User } from '../users/user.entity';
 
 @Entity('to_dos')
 export class ToDo extends Base {

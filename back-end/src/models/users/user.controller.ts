@@ -9,11 +9,12 @@ import {
   Query,
 } from '@nestjs/common';
 
-import { User } from './user.entity';
-import { UserDto } from './dtos/user.dto';
-import { UserService } from './user.service';
 import { CreateUserInput } from './dtos/create-user.input';
 import { UpdateUserInput } from './dtos/update-user.input';
+import { UserDto } from './dtos/user.dto';
+import { User } from './user.entity';
+import { UserService } from './user.service';
+
 import { Serializer } from '../../common/decorators/serializer.decorator';
 
 @Controller('users')
