@@ -22,7 +22,8 @@
     "m:c": "typeorm migration:create src/migrations/$name",
     "m:g": "typeorm migration:generate -d ./dist/database/datasource.js ./src/database/migrations/$name",
     "m:r": "typeorm migration:run -d ./dist/database/datasource.js",
-    "m:re": "typeorm migration:revert -d ./dist/database/datasource.js"
+    "m:re": "typeorm migration:revert -d ./dist/database/datasource.js",
+    "seed": "ts-node ./node_modules/typeorm-extension/dist/cli/index.js  -f src/database/data-source/config.ts seed"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
@@ -45,6 +46,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
     "typeorm": "^0.3.12",
+    "typeorm-extension": "^2.8.1",
     "uuid": "^9.0.0",
     "winston": "^3.8.2"
   },
