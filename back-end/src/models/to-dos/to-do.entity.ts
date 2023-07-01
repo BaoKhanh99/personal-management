@@ -10,7 +10,7 @@ export class ToDo extends Base {
   user: User;
 
   @Column('varchar', {
-    name: 'name',
+    name: 'title',
     nullable: false,
   })
   title: string;

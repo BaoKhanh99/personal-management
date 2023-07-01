@@ -8,7 +8,7 @@ export class createToDos1686842742230 implements MigrationInterface {
       `CREATE TABLE "to_dos" (
         "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
         "title" character varying NOT NULL,
-        "description" character varying NOT NULL,
+        "description" character varying NULL,
         "start_date" TIMESTAMP NOT NULL,
         "end_date" TIMESTAMP NULL,
         "user_id" uuid NOT NULL,

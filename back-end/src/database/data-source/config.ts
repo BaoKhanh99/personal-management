@@ -8,7 +8,11 @@ export default {
   username: process.env.DATABASE_USERNAME,
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_NAME,
-  entities: ['src/models/**/*.entity.ts'],
+  entities: [
+    process.env.NODE_ENV === 'seed'
+      ? 'src/models/**/*.entity.ts'
+      : 'dist/models/**/*.entity.js',
+  ],
   migrations: ['dist/database/migrations/*.js'],
   migrationsTableName: 'migrations',
   seeds: ['src/database/seeders/*.seed.ts'],

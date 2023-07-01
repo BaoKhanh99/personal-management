@@ -28,16 +28,16 @@ module.exports = {
         order: 'asc',
       },
       warnOnUnassignedImports: true,
-      "newlines-between": "always-and-inside-groups",
+      'newlines-between': 'always-and-inside-groups',
 
-      "groups":
+      'groups':
         [
-          "external",
-          "builtin",
-          "internal",
-          "sibling",
-          "parent",
-          "index"
+          'external',
+          'builtin',
+          'internal',
+          'sibling',
+          'parent',
+          'index'
         ],
     }],
   },

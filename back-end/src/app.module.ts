@@ -6,12 +6,14 @@ import { AsyncRequestContextModule } from './common/async-request-context/async-
 import { LoggerMiddleware } from './common/logger/logger.middleware';
 import { LoggerModule } from './common/logger/logger.module';
 import { AppConfigModule } from './config/app/config.module';
+import { ToDoModule } from './models/to-dos/to-do.module';
 import { UserModule } from './models/users/user.module';
 import { DatabaseProviderModule } from './providers/database/database-provider.module';
 
 @Module({
   imports: [
     UserModule,
+    ToDoModule,
     AuthModule,
     AppConfigModule,
     DatabaseProviderModule,

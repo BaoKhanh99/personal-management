@@ -1,5 +1,4 @@
 import { blue, red, green } from 'cli-color';
-
 import { PlatformTools } from 'typeorm/platform/PlatformTools';
 import { format } from 'winston';
 
