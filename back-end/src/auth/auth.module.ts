@@ -1,17 +1,19 @@
-import * as fs from 'fs';
-import * as path from 'path';
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 
+import * as fs from 'fs';
+import * as path from 'path';
+
 import { authConstant } from './auth.constant';
 import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
-import { LocalStrategy } from './strategies/local.strategy';
 import { JwtStrategy } from './strategies/jwt.strategy';
-import { UserModule } from '../models/users/user.module';
+import { LocalStrategy } from './strategies/local.strategy';
+
 import { AppConfigModule } from '../config/app/config.module';
 import { AppConfigService } from '../config/app/config.service';
+import { UserModule } from '../models/users/user.module';
 
 @Module({
   imports: [

@@ -1,7 +1,8 @@
-import { readFileSync } from 'fs';
 import { Inject, Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
+
+import { readFileSync } from 'fs';
 import { join } from 'path';
 
 import { AppConfigService } from '../../config/app/config.service';
