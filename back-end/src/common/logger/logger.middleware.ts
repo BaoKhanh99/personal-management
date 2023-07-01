@@ -1,7 +1,7 @@
 import { Inject, Injectable, NestMiddleware } from '@nestjs/common';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
-import { Logger } from 'winston';
 import { v4 } from 'uuid';
+import { Logger } from 'winston';
 
 import { AsyncRequestContext } from '../../common/async-request-context/async-request-context.service';
 

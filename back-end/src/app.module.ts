@@ -1,17 +1,19 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 
 import { AppController } from './app.controller';
-import { UserModule } from './models/users/user.module';
 import { AuthModule } from './auth/auth.module';
-import { AppConfigModule } from './config/app/config.module';
-import { LoggerModule } from './common/logger/logger.module';
-import { LoggerMiddleware } from './common/logger/logger.middleware';
-import { DatabaseProviderModule } from './providers/database/database-provider.module';
 import { AsyncRequestContextModule } from './common/async-request-context/async-request-context.module';
+import { LoggerMiddleware } from './common/logger/logger.middleware';
+import { LoggerModule } from './common/logger/logger.module';
+import { AppConfigModule } from './config/app/config.module';
+import { ToDoModule } from './models/to-dos/to-do.module';
+import { UserModule } from './models/users/user.module';
+import { DatabaseProviderModule } from './providers/database/database-provider.module';
 
 @Module({
   imports: [
     UserModule,
+    ToDoModule,
     AuthModule,
     AppConfigModule,
     DatabaseProviderModule,

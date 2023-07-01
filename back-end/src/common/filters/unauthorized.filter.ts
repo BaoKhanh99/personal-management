@@ -8,8 +8,8 @@ import {
 import { Response } from 'express';
 
 import { AsyncRequestContext } from '../async-request-context/async-request-context.service';
-import { loggerConstant } from '../logger/logger.constant';
 import { formatException } from '../errors/error.response';
+import { loggerConstant } from '../logger/logger.constant';
 
 @Catch(UnauthorizedException)
 export class UnauthorizedFilter implements ExceptionFilter {

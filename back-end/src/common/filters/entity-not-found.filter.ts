@@ -10,8 +10,8 @@ import { EntityNotFoundError } from 'typeorm';
 
 import { AsyncRequestContext } from '../async-request-context/async-request-context.service';
 import { commonErrorsConstant } from '../errors/constants/common-error.constant';
-import { loggerConstant } from '../logger/logger.constant';
 import { formatException } from '../errors/error.response';
+import { loggerConstant } from '../logger/logger.constant';
 
 @Catch(EntityNotFoundError)
 export class EntityNotFoundFilter implements ExceptionFilter {

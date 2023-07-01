@@ -1,7 +1,8 @@
-import { blue, green, red } from 'cli-color';
-import { hostname } from 'os';
+import { blue, red, green } from 'cli-color';
 import { PlatformTools } from 'typeorm/platform/PlatformTools';
 import { format } from 'winston';
+
+import { hostname } from 'os';
 
 import { loggerConstant } from './logger.constant';
 
