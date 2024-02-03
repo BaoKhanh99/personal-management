@@ -4,7 +4,7 @@ import { SubCategory } from '../sub-category/sub-category.entity';
 
 import { EntityConstant } from '@/common/constants/entity.constant';
 import { BaseEntity } from '@/common/entities/base.entity';
-import { CashType, WalletType } from '@/common/entities/entity.enum';
+import { AccountType, CashFlowType } from '@/common/entities/entity.enum';
 
 @Entity('cash_flow')
 export class CashFlow extends BaseEntity {
@@ -37,17 +37,17 @@ export class CashFlow extends BaseEntity {
 
   @Column({
     type: 'enum',
-    enum: CashType,
+    enum: CashFlowType,
     name: 'type',
   })
-  type: CashType;
+  type: CashFlowType;
 
   @Column({
     type: 'enum',
-    enum: WalletType,
-    name: 'wallet_type',
+    enum: AccountType,
+    name: 'account_type',
   })
-  walletType: WalletType;
+  accountType: AccountType;
 
   @Column({
     type: 'date',
