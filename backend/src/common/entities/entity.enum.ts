@@ -1,9 +1,9 @@
-export enum CashType {
+export enum CashFlowType {
   Income,
   Expense,
 }
 
-export enum WalletType {
+export enum AccountType {
   Essential,
   Saving,
   FinancialFreedom,
