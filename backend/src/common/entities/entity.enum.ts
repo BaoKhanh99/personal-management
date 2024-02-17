@@ -4,7 +4,7 @@ export enum CashFlowType {
 }
 
 export enum AccountType {
-  Essential,
+  Essentials,
   Saving,
   FinancialFreedom,
   Studying,
