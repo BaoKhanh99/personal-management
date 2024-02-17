@@ -20,7 +20,7 @@ export class CashFlowController {
   @Post('import')
   @UseInterceptors(FileInterceptor('file'))
   async import(@UploadedFile() rawFile: Express.Multer.File) {
-    const file = await this.excelImportService.importCashFlow(rawFile);
-    return this.cashFlowService.import(file);
+    const record = await this.excelImportService.handleCashFlowFile(rawFile);
+    return this.cashFlowService.import(record);
   }
 }
