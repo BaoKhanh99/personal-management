@@ -12,3 +12,9 @@ export enum AccountType {
   Giving,
   Other,
 }
+
+export enum BankType {
+  Bank,
+  EWallet,
+  CryptoCurrencyWallet,
+}
