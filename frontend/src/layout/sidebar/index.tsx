@@ -4,8 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBook,
   faFile,
+  faMoneyCheckDollar,
   faPowerOff,
   faUser,
+  faUsersBetweenLines,
   faWallet,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,9 +17,11 @@ const Sidebar = () => {
       <nav className="pt-9 grid grid-cols-1 h-screen">
         <div>
           <div className="pb-4">
+          <Link to="/">
             <h1 className="p-3 text-xl font-bold text-slate-50">
-              Personal management
+             Personal management
             </h1>
+            </Link>
           </div>
           <ul className="grid justify-items-center text-slate-50 divide-y divide-slate-100">
             <li className=" hover:text-slate-800 hover:bg-slate-50 p-3 w-56 hover:rounded-lg hover:drop-shadow-sm">
@@ -38,6 +42,26 @@ const Sidebar = () => {
                     <FontAwesomeIcon icon={faBook} />
                   </div>
                   <div className="col-span-4">My Books</div>
+                </div>
+              </Link>
+            </li>
+            <li className=" hover:text-slate-800 hover:bg-slate-50 p-3 w-56 hover:rounded-lg hover:drop-shadow-sm">
+              <Link to="#">
+                <div className="grid grid-cols-5">
+                  <div className="col-start-1 text-center">
+                    <FontAwesomeIcon icon={faUsersBetweenLines} />
+                  </div>
+                  <div className="col-span-4">My accounts</div>
+                </div>
+              </Link>
+            </li>
+            <li className=" hover:text-slate-800 hover:bg-slate-50 p-3 w-56 hover:rounded-lg hover:drop-shadow-sm">
+              <Link to="/bank-accounts">
+                <div className="grid grid-cols-5">
+                  <div className="col-start-1 text-center">
+                  <FontAwesomeIcon icon={faMoneyCheckDollar} />
+                  </div>
+                  <div className="col-span-4">My Bank accounts</div>
                 </div>
               </Link>
             </li>
