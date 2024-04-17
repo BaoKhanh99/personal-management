@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany } from 'typeorm';
 
-import { BankAccount } from '../bank-account/bank.account.entity';
+import { BankAccount } from '../bank-account/bank-account.entity';
 import { User } from '../user/user.entity';
 
 import { EntityConstant } from '@/common/constants/entity.constant';
