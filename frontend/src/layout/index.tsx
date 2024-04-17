@@ -3,7 +3,7 @@ import Sidebar from "./sidebar";
 
 export const Layout = ({ children }: React.PropsWithChildren<{}>) => {
   return (
-    <div className=" text-slate-900 bg-slate-50">
+    <div className="text-slate-900">
       <button
         data-drawer-target="logo-sidebar"
         data-drawer-toggle="logo-sidebar"
