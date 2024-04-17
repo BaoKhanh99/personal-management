@@ -13,98 +13,86 @@ import {
 
 const Sidebar = () => {
   return (
-    <div className=" drop-shadow-lg bg-slate-800 rounded-r-2xl w-72">
-      <nav className="pt-9 grid grid-cols-1 h-screen">
-        <div>
-          <div className="pb-4">
-          <Link to="/">
-            <h1 className="p-3 text-xl font-bold text-slate-50">
-             Personal management
-            </h1>
+    <aside
+      id="logo-sidebar"
+      className="fixed top-0 left-0 z-40 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0"
+      aria-label="Sidebar"
+    >
+      <div className="h-full px-3 py-4 overflow-y-auto bg-slate-800">
+        <Link to="/" className="flex items-center ps-2.5 mb-5">
+          <span className="self-center text-xl font-semibold whitespace-nowrap text-slate-50">
+            Personal management
+          </span>
+        </Link>
+        <ul className="space-y-2 font-medium">
+          <li>
+            <Link
+              to="#"
+              className="flex items-center p-2 text-slate-50 rounded-lg hover:bg-slate-100 hover:text-slate-900 group"
+            >
+              <FontAwesomeIcon icon={faWallet} />
+              <span className="ms-3">Money management</span>
             </Link>
-          </div>
-          <ul className="grid justify-items-center text-slate-50 divide-y divide-slate-100">
-            <li className=" hover:text-slate-800 hover:bg-slate-50 p-3 w-56 hover:rounded-lg hover:drop-shadow-sm">
-              <Link to="#">
-                <div className="grid grid-cols-5">
-                  <div className="col-start-1 text-center">
-                    <FontAwesomeIcon icon={faWallet} />
-                  </div>
-                  <div className="col-span-4">Money management</div>
-                </div>
-              </Link>
-            </li>
-
-            <li className=" hover:text-slate-800 hover:bg-slate-50 p-3 w-56 hover:rounded-lg hover:drop-shadow-sm">
-              <Link to="#">
-                <div className="grid grid-cols-5">
-                  <div className="col-start-1 text-center">
-                    <FontAwesomeIcon icon={faBook} />
-                  </div>
-                  <div className="col-span-4">My Books</div>
-                </div>
-              </Link>
-            </li>
-            <li className=" hover:text-slate-800 hover:bg-slate-50 p-3 w-56 hover:rounded-lg hover:drop-shadow-sm">
-              <Link to="#">
-                <div className="grid grid-cols-5">
-                  <div className="col-start-1 text-center">
-                    <FontAwesomeIcon icon={faUsersBetweenLines} />
-                  </div>
-                  <div className="col-span-4">My accounts</div>
-                </div>
-              </Link>
-            </li>
-            <li className=" hover:text-slate-800 hover:bg-slate-50 p-3 w-56 hover:rounded-lg hover:drop-shadow-sm">
-              <Link to="/bank-accounts">
-                <div className="grid grid-cols-5">
-                  <div className="col-start-1 text-center">
-                  <FontAwesomeIcon icon={faMoneyCheckDollar} />
-                  </div>
-                  <div className="col-span-4">My Bank accounts</div>
-                </div>
-              </Link>
-            </li>
-            <li className=" hover:text-slate-800 hover:bg-slate-50 p-3 w-56 hover:rounded-lg hover:drop-shadow-sm">
-              <Link to="#">
-                <div className="grid grid-cols-5">
-                  <div className="col-start-1 text-center">
-                    <FontAwesomeIcon icon={faFile} />
-                  </div>
-                  <div className="col-span-4">Portfolio</div>
-                </div>
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        <div className="border-t border-slate-50 mt-60">
-          <ul className="grid justify-items-center text-slate-50 divide-y divide-slate-100 mt-10">
-            <li className=" hover:text-rose-700 hover:bg-slate-50 p-3 w-56 hover:rounded-lg hover:drop-shadow-sm">
-              <Link to="#">
-                <div className="grid grid-cols-5">
-                  <div className="col-start-1 text-center">
-                    <FontAwesomeIcon icon={faUser} />
-                  </div>
-                  <div className="col-span-4">My Profile</div>
-                </div>
-              </Link>
-            </li>
-
-            <li className=" hover:text-rose-700 hover:bg-slate-50 p-3 w-56 hover:rounded-lg hover:drop-shadow-sm">
-              <Link to="#">
-                <div className="grid grid-cols-5">
-                  <div className="col-start-1 text-center">
-                    <FontAwesomeIcon icon={faPowerOff} />
-                  </div>
-                  <div className="col-span-4">Logout</div>
-                </div>
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+          </li>
+          <li>
+            <Link
+              to="#"
+              className="flex items-center p-2 text-slate-50 rounded-lg hover:bg-slate-100 hover:text-slate-900 group"
+            >
+              <FontAwesomeIcon icon={faBook} />
+              <span className="ms-3">My books</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="#"
+              className="flex items-center p-2 text-slate-50 rounded-lg hover:bg-slate-100 hover:text-slate-900 group"
+            >
+              <FontAwesomeIcon icon={faUsersBetweenLines} />
+              <span className="ms-3">My accounts</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/bank-accounts"
+              className="flex items-center p-2 text-slate-50 rounded-lg hover:bg-slate-100 hover:text-slate-900 group"
+            >
+              <FontAwesomeIcon icon={faMoneyCheckDollar} />
+              <span className="ms-3">My Bank accounts</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="#"
+              className="flex items-center p-2 text-slate-50 rounded-lg hover:bg-slate-100 hover:text-slate-900 group"
+            >
+              <FontAwesomeIcon icon={faFile} />
+              <span className="ms-3">Portfolio</span>
+            </Link>
+          </li>
+        </ul>
+        <ul className="pt-4 mt-4 space-y-2 font-medium border-t border-slate-200 ">
+          <li>
+            <Link
+              to="#"
+              className="flex items-center p-2 text-slate-50 rounded-lg hover:bg-slate-100 hover:text-slate-900 group"
+            >
+              <FontAwesomeIcon icon={faUser} />
+              <span className="ms-3">Profile</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="#"
+              className="flex items-center p-2 text-slate-50 rounded-lg hover:bg-slate-100 hover:text-slate-900 group"
+            >
+              <FontAwesomeIcon icon={faPowerOff} />
+              <span className="ms-3">Logout</span>
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </aside>
   );
 };
 
