@@ -20,8 +20,12 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <Layout>
-      <div className="mt-5 mb-10">
-        <div className="mb-10">MY BANK ACCOUNTS AND E-WALLETS</div>
+      <div className="mt-5 mb-10 text-center text-slate-900">
+        <div className="mb-10">
+          <h2 className="text-4xl font-extrabold">
+            MY BANK ACCOUNTS AND E-WALLETS
+          </h2>
+        </div>
         <div className="text-end mr-10">
           <Link to="">
             <button
@@ -38,7 +42,7 @@ const IndexPage: React.FC<PageProps> = () => {
         {bankAccounts?.map((bankAccount: any) => {
           return (
             <div key={bankAccount.id}>
-              <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div className="max-w-sm bg-slate-50 border border-slate-200 rounded-lg shadow ">
                 <Link to="#">
                   <StaticImage
                     className="rounded-t-lg"
@@ -46,28 +50,15 @@ const IndexPage: React.FC<PageProps> = () => {
                     alt={""}
                   />
                 </Link>
-                <div className="p-5">
+                <div className="p-5 text-center">
                   <Link to="#">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-slate-900 ">
                       {bankAccount.bank.name}
                     </h5>
                   </Link>
-                  <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                  <p className="mb-3 font-normal text-slate-700 ">
                     {bankAccount.accountNumber}
                   </p>
-                  <button
-                    type="button"
-                    className="text-white bg-gradient-to-r from-slate-500 via-slate-600 to-slate-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-slate-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                  >
-                    Detail
-                  </button>
-
-                  {/* <Link
-                    to="#"
-                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  >
-                    Detail
-                  </Link> */}
                 </div>
               </div>
             </div>
