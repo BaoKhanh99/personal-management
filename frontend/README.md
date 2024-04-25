@@ -1,49 +1,39 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal TypeScript Starter
-</h1>
+# frontend
 
-## 🚀 Quick start
+This template should help get you started developing with Vue 3 in Vite.
 
-1.  **Create a Gatsby site.**
+## Recommended IDE Setup
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+## Type Support for `.vue` Imports in TS
 
-2.  **Start developing.**
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
 
-    Navigate into your new site’s directory and start it up.
+## Customize configuration
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-3.  **Open the code and start customizing!**
+## Project Setup
 
-    Your site is now running at http://localhost:8000!
+```sh
+npm install
+```
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
+### Compile and Hot-Reload for Development
 
-4.  **Learn more**
+```sh
+npm run dev
+```
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+### Type-Check, Compile and Minify for Production
 
-## 🚀 Quick start (Netlify)
+```sh
+npm run build
+```
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+### Lint with [ESLint](https://eslint.org/)
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+```sh
+npm run lint
+```
