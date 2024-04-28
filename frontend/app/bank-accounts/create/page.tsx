@@ -1,7 +1,6 @@
 "use client";
 
-import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaCloudArrowUp } from "react-icons/fa6";
 
 export default function CreateBankAccountPage() {
   return (
@@ -23,7 +22,7 @@ export default function CreateBankAccountPage() {
                     className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-rose-600 focus:border-rose-600 block w-full p-2.5"
                   >
                     <option value="#">Select a bank</option>
-                    <option value='test'>test</option>;
+                    <option value="test"> test</option>;
                   </select>
 
                   <label
@@ -75,11 +74,7 @@ export default function CreateBankAccountPage() {
                   className="flex flex-col items-center justify-center w-full h-64 border-2 border-slate-300 border-dashed rounded-lg cursor-pointer bg-slate-50 hover:bg-slate-100"
                 >
                   <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                    <FontAwesomeIcon
-                      size="3x"
-                      className="text-slate-600"
-                      icon={faCloudArrowUp}
-                    />
+                    <FaCloudArrowUp />
                     <p className="mb-2 text-sm text-slate-500 ">
                       <span className="font-semibold">Click to upload</span> or
                       drag and drop QR code image
