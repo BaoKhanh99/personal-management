@@ -6,30 +6,24 @@ import { Button } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 
-export default function BankAccountPage() {
-  const [bankAccounts, setBankAccounts] = useState([
-    {
-      id: "abc",
-      accountNumber: "ádfsdf",
-      bank: {
-        name: "xyz",
-      },
-    },
-  ]);
+export default function BooksPage() {
+  const [books, setBooks] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      setBankAccounts((await axiosClient.get("/bank-accounts")).data);
+      setBooks((await axiosClient.get("/books")).data);
     }
 
     fetchData();
   }, []);
 
+
+  // temp
   return (
     <div className="mt-5 mb-10 text-center text-slate-900">
       <div className="mb-10">
         <h2 className="text-4xl font-extrabold">
-          MY BANK ACCOUNTS AND E-WALLETS
+          MY BOOKS
         </h2>
       </div>
       <div className="flex flex-row-reverse mr-10">
@@ -39,7 +33,7 @@ export default function BankAccountPage() {
               <div className="text-center pr-1 content-center">
                 <FaPlus />
               </div>
-              <div>Add Bank Account</div>
+              <div>Add Book</div>
             </div>
           </Link>
         </Button>

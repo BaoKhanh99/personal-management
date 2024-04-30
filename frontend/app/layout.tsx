@@ -109,21 +109,26 @@ export default function RootLayout({
 
           <Sidebar.Items>
             <Sidebar.ItemGroup>
+              <Sidebar.Collapse label="Money management" icon={FaWallet}>
+                <Sidebar.Item href="/money-management">
+                  Monthly Statistics
+                </Sidebar.Item>
+                <Sidebar.Item href="/money-management/calculate">
+                  Calculate For A Month
+                </Sidebar.Item>
+              </Sidebar.Collapse>
               <Sidebar.Collapse label="Bank Accounts" icon={FaMoneyCheckDollar}>
                 <Sidebar.Item href="/bank-accounts">
                   List Bank Accounts
                 </Sidebar.Item>
-                <Sidebar.Item href="#">create Bank Account</Sidebar.Item>
+                <Sidebar.Item href="#">Create Bank Account</Sidebar.Item>
                 <Sidebar.Item href="#">Create Bank Or E-Wallet</Sidebar.Item>
               </Sidebar.Collapse>
-              <Sidebar.Item href="#" icon={FaBook}>
+              <Sidebar.Item href="/books" icon={FaBook}>
                 Books
               </Sidebar.Item>
               <Sidebar.Item href="#" icon={FaUsersBetweenLines}>
                 Accounts
-              </Sidebar.Item>
-              <Sidebar.Item href="#" icon={FaWallet}>
-                Money Management
               </Sidebar.Item>
             </Sidebar.ItemGroup>
             <Sidebar.ItemGroup>
@@ -133,7 +138,7 @@ export default function RootLayout({
             </Sidebar.ItemGroup>
           </Sidebar.Items>
         </Sidebar>
-        <div className="p-4 sm:ml-72">{children}</div>
+        <div className="pt-3 pr-5 sm:ml-72">{children}</div>
       </body>
     </html>
   );
